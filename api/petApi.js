@@ -1,9 +1,11 @@
 import http from "k6/http";
 import { check, sleep } from "k6";
 
+const BASE_URL = "https://petstore.swagger.io/v2";
+
 
 export function criarPet() {
-    const url = "https://petstore.swagger.io/v2/pet";
+    const url = BASE_URL + "/pet";
 
     //body da requisição
     const payload = JSON.stringify({
@@ -41,7 +43,7 @@ export function criarPet() {
 }
 
 export function buscarPet(id) {
-    const url2 = `https://petstore.swagger.io/v2/pet/${id}`;
+    const url2 = BASE_URL+ `/pet/${id}`;
     console.log('URl2:', url2)
     const params2 = {
         headers: {
